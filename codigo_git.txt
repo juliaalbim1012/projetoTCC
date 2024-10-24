@@ -1,0 +1,5 @@
+git add . 
+
+git commit -m 'dentro das aspas vai a mensagem'
+
+git push 
