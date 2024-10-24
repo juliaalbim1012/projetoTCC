@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <%- include('components/head') %>
+  <body>
+    <main class="grin-admin">
+      <div class="content-admin">
+        <%- include('components/menuAdmin') %>
+        <div class="admin-profile">
+          <%- include("components/headerAdmin") %>
+        </div>
+        <div class="content-display">
+          <h1>Pages</h1>
+          <div class="content-msg">
+            <% if (msgSuccess) { %>
+            <div class="msgSuccess">
+              <%= msgSuccess %><a href="/Pages">X</a>
+            </div>
+            <% } %> <% if(msgError) { %>
+            <div class="msgError"><%= msgError%> <a href="/pages/">X</a></div>
+            <% } %>
+          </div>
+          <div class="content-list-pages">
+            <div class="btn-create-pages">
+              <a href="/pages/createPages">Adicionar uma nova página</a>
+            </div>
+            <div class="list-pages">
+              <div class="table">
+                <div class="row">
+                  <div class="row-border header-page">
+                    <div class="col">Page</div>
+                    <div class="col">Position</div>
+                    <div class="col">Status</div>
+                    <div class="col">Editar</div>
+                    <div class="col">Delete</div>
+                  </div>
+                </div>
+                <div class="row">
+                  <%pages.forEach(page => {%>
+                  <div class="row-border">
+                    <div class="col"><%=page.page_title %></div>
+                    div>
+                    <div class="col"><%=page.position_name %></div>
+                    div>
+                    <div class="col">
+                      <%= page.page_status === 1 ? 'Publicado' : 'Rascunho'%>
+                    </div>
+                    <div class="col">
+                      <a href="/pages/editPage/<%=page.page_id %>">Editar</a>
+                    </div>
+                    <div class="col">
+                      <!--<a href="pages/deletePage/<%= //e.page_id %>">Delete</a> -->
+                      <button
+                        onclick="openDeleteModal(`<%=page.page_id %>`, `<%= page.page_title%> `)"
+                        id="delete"
+                        data-id="<%=page.page_id%>"
+                      >
+                        Delete
+                      </button>
+                    </div>
+                  </div>
+                  <%})%>
+                </div>
+                <div class="modal hide-modal" id="contet-delete">
+                  <form action="" method="post">
+                    <h3></h3>
+                    <h4>
+                      Se você realmente quer deletar clique em Deletar se não
+                      clique em cancelar
+                    </h4>
+                    <button id="cancelar" type="reset">Cancelar</button>
+                    <button>Delete</button>
+                  </form>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+    <%- include('components/script') %>
+  </body>
+</html>

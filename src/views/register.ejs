@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <%- include('components/head') %>
+  <body>
+    <%- include('components/header') %>
+    <main>
+      <div class="content-form-cadastro">
+        <form action="/register" method="post">
+          <div class="input-name">
+            <label for="user-name"></label>
+            <input
+              type="text"
+              name="user_name"
+              class="user-name"
+              placeholder="Nome completo"
+              id="user-name"
+            /> 
+            <% if(msg.msgNameError) { %>
+                <div class="msgError"><%= msg.msgNameError %></div>
+                <% } %>
+          </div>
+          <div class="input-cpf">
+            <label for="user-cpf"></label>
+            <input
+              type="text"
+              name="user_cpf"
+              class="user-cpf"
+              placeholder="CPF"
+              id="user-cpf"
+            /> 
+            <% if(msg.msgErrorCPF) { %>
+                <div class="msgError"><%= msg.msgErrorCPF %></div>
+                <% } %>
+          </div>
+          <div class="input-cep">
+            <label for="user-cep"></label>
+            <input
+              type="text"
+              name="user_cep"
+              class="user-cep"
+              placeholder="CEP"
+              id="user-cep"
+            /> 
+            <% if(msg.msgErrorCEP) { %>
+                <div class="msgError"><%= msg.msgErrorCEP %></div>
+                <% } %>
+          </div>
+          <div class="input-telefone">
+            <label for="user-telefone"></label>
+            <input
+              type="text"
+              name="user_telefone"
+              class="user-telefone"
+              placeholder="Telefone"
+              id="user-telefone"
+            /> 
+            <% if(msg.msgErrorTelefone) { %>
+                <div class="msgError"><%= msg.msgNameError %></div>
+                <% } %>
+          </div>
+          <div class="input-email">
+            <label for="user-email"></label>
+            <input
+              type="text"
+              name="user_email"
+              class="user-email"
+              placeholder="Digite seu email"
+              id="user-email"
+            />
+            <% if(msg.msgEmailError) { %>
+                <div class="msgError"><%= msg.msgEmailError %></div>
+                <% } %>
+           
+          </div>
+          <div class="input-password">
+            <label for="user-password"></label>
+            <input
+              type="text"
+              name="user_password"
+              class="user-password"
+              placeholder="Digite sua senha"
+              id="user-password"
+            />
+            <% if(msg.msgPassError) { %>
+                <div class="msgError"><%=msg.msgPassError %></div>
+                <% } %>
+          </div>
+          <div class="input-confirm-password">
+            <label for="user-confirm-password"></label>
+            <input
+              type="text"
+              name="userConfirmPassword"
+              class="user-confirm-password"
+              placeholder="Confirme a senha"
+              id="user-confirm-password"
+            />
+            <% if(msg.msgPassError) { %>
+                <div class="msgError"><%= msg.msgPassError %></div>
+                <% } %>
+          </div>
+          <div class="content-bnt">
+            <button>Cadastrar</button>
+          </div>
+          <div class="content-message">
+           <% if(msg.msgFieldsEmpty) { %>
+            <div class="msgError"><%= msg.msgFieldsEmpty %></div>
+            <% } %> <% if(msgSucess) { %>
+            <div class="msgError"><%= msgSucess %></div>
+            <% } %>  
+          </div>
+        </form>
+      </div>
+    </main>
+    <%- include('components/footer') %>
+  </body>
+</html>

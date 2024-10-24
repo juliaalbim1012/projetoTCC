@@ -1,0 +1,24 @@
+<header class="header-home">
+    <picture class="img-logo">
+     <img src="/img/BrasilSaneado.png" alt="">   
+    </picture>
+    <div class="container">
+        <nav class="main-menu">
+            <ul>
+                <li><a href="/">Menu</a></li>
+
+                <% if (!locals.session.logged) { %>
+                 
+                    <li><a href="/login">login</a></li>
+                    <li><a href="/register">cadastro</a></li>
+               
+                <% } else { %>
+                    <li><a href="/reclamacoes   ">Reclamações</a></li>
+                    <li><a href="/logout">Sair</a></li>
+                    <% } %>
+           
+           
+            </ul>
+        </nav>
+    </div>
+</header>

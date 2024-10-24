@@ -1,0 +1,483 @@
+*, *::before, *::after{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+*{
+    font-family:cursive ;
+}
+
+a{
+    text-decoration: none;
+}
+
+li{
+    list-style: none;
+}
+
+:root{
+    --cor--branco: rgb(255, 255, 255);
+    --cor--preto: rgb(0, 0, 0);
+    --cor--roxo: rgb(163, 4, 255);
+    --cor--verde-agua: rgb(23, 83, 250);
+    --cor--rosa: rgb(143, 43, 138);
+    --cor--azul-escuro: rgb(53, 104, 245);
+    --cor--magenta: rgb(255, 0, 128);
+    --cor--cinza-light: rgb(221, 218, 218);
+    --cor-vermelho: rgb(231, 11, 11);
+    --cor-vermelho-light: rgb(241, 167, 167);
+
+
+}
+body{
+    background:  rgb(93, 205, 243);
+}
+
+
+.header-home{
+    display: flex;
+background:var(--cor--azul-escuro)
+}
+
+.img-logo img{
+    max-width: 40%;
+}
+
+.main-menu{
+    width: 100%;
+}
+
+.main-menu ul{
+    display: flex;
+}
+
+.main-menu ul li a{
+    display: flex;
+    padding: 1rem 2rem;
+    font-size: 1.8rem;
+    font-weight: bold;
+    color: var(--cor--branco);
+    transition:  all 300ms ease-in-out;
+}
+
+.main-menu ul li a:hover{
+    background: var(--cor--verde-agua);
+}
+
+/**************************
+Estilo do campo pesquisar
+******************************/
+
+.search{
+    width: 100%;
+}
+
+.search form{
+    position: relative;
+    display: flex;
+    justify-content: right;
+    padding: 1rem 2rem;
+}
+
+.search form .input-search input{
+    outline: none;
+    border: none;
+    padding: 0.5 1rem;
+    border-top-left-radius: 0.5rem;
+    border-bottom-left-radius: 0.5rem;
+    width: 100%;
+    font-size: 1.5rem;
+}
+
+.search form .btn-search button{
+    border: 0;
+    background: var(--cor--branco);
+    font-size: 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-top-right-radius: 0.5rem;
+    border-bottom-right-radius: 0.5rem;
+    padding: 0.05rem 0.3rem;
+    cursor: pointer;
+    transition: all 300ms ease-in-out;
+}
+
+.search form .btn-search button:hover{
+    background: var(--cor--cinza-light);
+}
+/* estilo do formulario de cadastro */ 
+
+.content-form-cadastro{
+    width: 80%;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    flex-direction:column;
+}
+
+.content-form-cadastro h1{
+    text-align: center;
+    width: 100%;
+}
+
+.content-form-cadastro form{
+    width: 40%;
+    padding: 1rem 0;
+}
+
+.content-form-cadastro form div{
+    padding: 0 0 1rem 0;
+}
+
+    .content-form-cadastro form div input{
+        width: 100%;
+        font-size: 1.2rem;
+        padding: 0.5rem 1rem;
+        outline: 0.2rem solid var(--cor--azul-escuro);
+        border-radius: 0.8rem;
+
+    }
+
+.content-form-cadastro form  .content-bnt button{
+    width: 100%;
+    font-size: 1.2rem;
+    cursor: pointer;
+    background: var(--cor--verde-agua);
+    border: none;
+    padding: 0.5rem 0;
+    border-radius: 0.5rem;
+    transition: background 300ms ease-in-out;
+    color: var(--cor--branco);
+}
+
+.content-form-cadastro form  .content-bnt button:hover{
+    background-color:rgb(18, 32, 161) ;
+
+}
+
+.content-msg {
+    padding: 0.5rem 0;
+    font-size: 1rem;
+}
+    .msgErrorInput{
+        padding: 0.5rem 0;
+        font-size:1rem;
+    }
+.msgError,
+.msgSuccess{
+    padding: 1rem 0;
+    font-size: 1.2rem;
+}
+.msgError,
+.msgSuccess,
+.msgErrorInput{
+    text-align: center;
+    font-weight: bold;
+    border-radius: 0.5rem;
+}
+.msgError,
+.msgErrorInput{
+    color:var(--cor-vermelho);
+    background: var(--cor-vermelho-light);
+}
+.msgSuccess{
+    color : var(--cor-verde);
+    background: var(--cor-verde-light);
+}
+
+
+
+/***************************************
+estilo das paginas do admin
+****************************************/
+
+.content-admin{
+    display: grid;
+    grid-template-columns:auto 1fr;
+    grid-template-rows: auto 1fr;
+    grid-template-areas:
+    "sidebar nav"
+    "sidebar main";
+}
+
+.container-header-admin{
+    grid-area: sidebar;
+    position: sticky;
+    top: 0;
+    height: 100vh;
+    z-index: 99;
+    background: var(--cor--cinza-light);
+}
+
+.admin-profile{
+    grid-area: nav;
+    position: sticky;
+    top: 0;
+    z-index: 99;
+    background: var(--cor-branco);
+    padding: 1rem;
+
+}
+
+.content-display{
+    grid-area: main;
+    padding: 1rem 2rem;
+}
+
+.main-menu-admin{
+    padding: 0 0 0 1rem ;
+
+}
+
+.main-menu-admin ul li a{
+    display: flex;
+    padding: 0.5rem 0 0.5rem 1rem;
+    color: var(--cor-preto);
+    font-weight: bold;
+    transition: background 300ms ease-in-out;
+}
+
+.main-menu-admin ul li a:hover{
+    background: var(--cor-azul);
+}
+
+.active{
+    background: var(--cor--azul-escuro)
+}
+
+/************************************
+Estilo Pages
+**************************************/
+
+.create-pages form .form-group div{
+    padding: 1rem 0;
+}
+
+.create-pages form textarea{
+    height: 600px;
+}
+
+.btn-create-page{
+    display: flex;
+    padding: 1rem 0 0 0;
+}
+.btn-create-page a {
+    display: flex;
+    color: var(--cor-preto);
+    background: var(--cor-cinza-light);
+    padding: 0.5rem 1rem;
+    transition: background 350ms ease-in-out;
+}
+
+.btn-create-page a:hover{
+    background: var(--cor-branco);
+}
+ .btns-controls-page{
+    display: flex;
+    gap: 2rem;
+ }
+
+ .btns-controls-page a,
+ .btns-controls-page button {
+    padding: 0.5rem 2rem;
+    border-radius: 0.3rem;
+    font-weight: bold;
+    font-size: 1.3rem;
+ }
+
+ .btns-controls-page a {
+    color: var(--cor-branco);
+    background-color: var(--cor-cinza);
+
+    transition: background 300ms ease-in-out;
+ }
+ .btns-controls-page a:hover {
+    background: var(--cor-vermelho);
+ }
+
+ .btns-controls-page button {
+    cursor: pointer;
+    border: none;
+    background: var(--cor-branco);
+    transition: background 300ms ease-in-out, color 300ms ease-in-out;
+ }
+
+ .btns-controls-page button:hover {
+    color:var(--cor-branco);
+    background: var(--cor-verde);
+ }
+
+ .page_title input {
+    padding: 0.5rem 1rem;
+    width: 100%;
+    font-size: 1.3rem;
+    border: none;
+    outline: none;
+    border-radius: 0.3rem;
+ }
+
+ .page_position label,
+ .page_status label {
+    display: flex;
+    padding-bottom: 0.3rem;
+    font-size: 1.2rem;
+    color: var(--cor-branco);
+ }
+
+ .page_position select,
+ .page_status select{
+    width: 30%;
+    padding: 0.5rem 1rem;
+    font-size: 1.3rem;
+    font-weight: bold;
+    outline: none;
+ }
+
+ .page_position a {
+    padding: 0.5rem 1rem;
+    font-size: 1.3rem;
+    font-weight: bold;
+    background: var(--cor-cinza);
+    color: var(--cor-branco);
+    transition: color 300ms ease-in-out, background 300ms ease-in-out;
+ }
+
+ .page_position a:hover {
+    color: var(--cor-verde);
+    background: var(--cor-cinza-light);
+}
+
+.page_status {
+    padding-bottom: 2rem !important;
+}
+
+/*******************************************
+Estolo da lista de Pages
+*********************************************/
+.table{
+    padding: 2rem 0 0 0;
+}
+
+.row {
+    /*-templete-columns: repeat(auto-fit, minmax(25%, 1fr)); */
+    background: var(--cor-branco);
+    padding: 0.5rem;
+}
+
+.row-border {
+    display: grid;
+    grid-template-columns: 40% 25% 15% 10% 10%;
+    border-bottom: 0.2rem solid;
+    /*border-top : 0.2rem solid; */
+}
+.header-page{
+    font-weight: bold;
+}
+
+.col {
+    padding: 0.5rem 1rem;
+}
+
+.modal,
+.modal-add-position {
+    position:fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 999;
+    background: var(--cor-preto-alpha);
+}
+
+.modal form,
+.modal-add-position form {
+    position: absolute;
+    top: 35%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: var(--cor-cinza-light);
+    width: 50%;
+    height: 300px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    border-radius: 0.8rem;
+    box-shadow: 0px 0px 51px 25px rgba(0, 0, 0, 0.75);
+}
+
+.modal-add-position form {
+    height: 300px;
+}
+
+.show-modal {
+opacity: 1;
+visibility: visible;
+transition: opacity 300ms ease-in-out, visibility 300ms ease-in-out;
+}
+ 
+.hide-modal {
+    opacity: 0;
+visibility: hidden;
+transition: opacity 300ms ease-in-out, visibility 300ms ease-in-out;
+}
+
+.content-add-position {
+    width: 100%;
+}
+
+.content-add-position h2 {
+    text-align: center;
+    padding-bottom: 2rem;
+}
+
+.cancelar-x {
+    position: absolute;
+    top: 0.5rem;
+    right: 1rem;
+}
+
+.cancelar-x a {
+    display: flex;
+    font-size: 3rem;
+    font-weight: bold;
+    color: var(--cor-vermelho);
+    transition: transform 300ms ease-in-out;
+}
+
+.cancelar-x a:hover {
+    transform: scale(1.2);
+}
+
+.input-position-name,
+.btn-position {
+    display: flex;
+    justify-content: center;
+}
+.input-position-name {
+    padding-bottom: 1rem;
+}
+
+.input-position-name input,
+.btn-position button {
+    border: 0.1rem solid var(--cor-preto);
+    border-radius: 0.2rem;
+    font-size: 1.3rem;
+    padding: 0.3rem 0.6rem;
+    width: 60%;
+}
+ .btn-position button {
+    background:var(--cor-verde-light);
+    cursor: pointer;
+    font-weight: bold;
+    transition: color 300ms ease-in-out, background 300ms ease-in-out;
+ }
+
+ .btn-position button:hover {
+    color: var(--cor-branco);
+    background: var(--cor-verde);
+ }
+
+
