@@ -1,5 +1,7 @@
 git add . 
 
-git commit -m 'dentro das aspas vai a mensagem'
+git commit -m 'atualizado os arquivos'
 
 git push 
+
+g

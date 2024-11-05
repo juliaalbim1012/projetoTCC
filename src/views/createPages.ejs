@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<%- include('components/head') %>
+<body>
+    <main>
+      <div class="content-admin">
+      <%- include('components/menuAdmin') %>
+      <div class="admin-profile">
+       <%- include('components/headerAdmin') %> 
+     </div>
+   <div class="content-display">
+    <h1>Pages</h1>
+    <div class="content-msg">
+      <% if(msgSucess) { %>
+    <div class="msgSucess">
+       <%= msgSucess %> <a href="/pages/createsPages">X</a>
+    </div> 
+    <% } %> <% if(msgError) { %>
+      <div class="msgError">
+        <% msgError %> <a href="/pages/createsPages">X</a>
+      </div>
+      <% } %>
+    </div>
+    <div class="create-pages">
+      <form action="/pages/createPages" method="post">
+       <div class="form-group">
+        <div class="btns-controls-page">
+         <a href="/pages">Cancelar</a>
+         <button>Salvar</button> 
+         </div>
+    <div class="page_title" id="page_title">
+      <input
+      type="text"
+      name="page_title"
+      placeholder="Titulo da página"
+      />
+   </div>
+  <div class="page-position" id="page-position">
+    <label for="select_position">Selecione uma posição</label>
+    <select name="page_position_id" id="select_position">
+      <option value="" disabled selected>
+        Selecione uma posição
+      </option>
+      <% getPosition.forEach(position => { %>
+      <option value="<%= position.position_id %>">
+        <%= position.position_name %>
+      </option>>
+     <% }) %>  
+    </select>
+    <a href="#"><i class="bx bx-plus-medical"></i> Add Posição </a>
+    </div>
+    <div class="page_status" id="page_status">
+    <label for="select_status">Seleciona o status</label>
+    <select name="page_status" id="select_status">
+      <option value="rascunho">Rascunho</option>
+      <option value="publicado">Publicado</option>
+          </select>
+       </div>
+    </div>
+    <div class="container-galeria">
+      <h3>Galeria</h3>
+      <div class="all_images">
+        <% images.forEach(image => { %>
+          <div
+            class="content_image"
+            data-id="<%= image.user_image_id %>"
+            id="content_image"
+          >
+            <div class="show_img">
+              <img
+               src="<%= image.user_image_name %>"
+               id="image_name"
+               alt=""
+             />
+          </div>
+          <div class="img_name" id="img_name">
+            <%= image.user_image_name %>
+          </div>
+         </div> 
+        <% }) %>
+      </div>
+     </div>
+     <textarea
+      name="page_content"
+      id="my-expressjs-tinymce-app"
+     ></textarea>
+     </form>
+     </div>
+     <div class="modal-add-position hide-modal" id="modal-add-position">
+      <form action="/position/page" method="post">
+        <div class="content-add-position">
+          <h2>Cadastre uma Posição </h2>
+          <div class="cancelar-x" id="cancelar-x">
+            <a href="#"><i class="bx bxs-x-square"></i></a>
+          </div>
+          <div class="input-position-name">
+            <input
+                     type="text"           
+                     name="position_name"
+                     id="position_name"
+                     placeholder="Nome da Posição"
+                    />
+                   </div>
+                    <div class="btn-position">
+                     <button>Cadastrar Posição</button>
+                  </div>
+                </div>
+               </form>
+              </div>
+           </div>
+          </div>
+      </main>
+        <%- include('components/script')%>
+    </body>
+</hmtl>
+
