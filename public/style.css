@@ -1,11 +1,30 @@
-*, *::before, *::after{
+*,
+ *::before, 
+ *::after{
     padding: 0;
     margin: 0;
     box-sizing: border-box;
 }
 
-*{
+html {
+    scroll-behavior: smooth;
+}
+
+* {
     font-family:cursive ;
+}
+
+::-webkit-scrollbar {
+    width: 6px;
+}
+
+::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+*::-webkit-scrollbar-thumb {
+    background: var(--cor-branco);
+    border-radius: 10px;
 }
 
 a{
@@ -480,4 +499,200 @@ transition: opacity 300ms ease-in-out, visibility 300ms ease-in-out;
     background: var(--cor-verde);
  }
 
+/**************************************************
+ estilo do formulario de upload das imagens uploaded
+**************************************************/
 
+.group-images {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+}
+
+.image {
+    padding: 1rem;
+    overflow: hidden;
+    height: 200px;
+    position: relative;
+}
+
+.content-form-upload {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.content-form-upload form {
+    width: 60%;
+} 
+
+.content-form-upload form .input-upload label {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    border: 0.13rem solid var(--cor--preto);
+    border-radius: 0.2rem;
+    background:  var(--cor--branco);
+    font-size: 1.3rem;
+    padding: 1rem 0;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.content-form-upload form .input-upload input {
+    /*display: none; */
+    text-align: center;
+    width: 100%;
+}
+
+.content-form-upload form .input-upload::-webkit-file-upload-button{
+    display: none;
+}
+
+.content-form-upload form .content-bnt {
+    padding: 1rem 0;
+}
+
+.content-form-upload form .content-bnt button {
+    width: 100%;
+    border: 0.13rem solid var(--cor--preto);
+    border-radius: 0.2rem;
+    font-size: 1.3rem;
+    padding: 1rem 0;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background 300ms ease-in-out;
+}
+
+.content-form-upload form .content-bnt button:hover {
+    background: var(--cor-verde-light);
+}
+
+/*******************************************
+mensagem de erro e sucesso 
+******************************************/
+
+.content-msg {
+    padding-top: 0.5rem;
+}
+
+.msgErrorInput {
+    padding: 0.5rem 0;
+    font-size: 1rem;
+}
+
+.msgError,
+.msgSuccess {
+    padding: 1rem 0;
+    font-size: 1.2rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.msgError,
+.msgSuccess,
+.msgErrorInput {
+    text-align: center;
+    font-weight: bold;
+    border-radius: 0.5rem;
+}
+
+.msgError,
+.msgErrorInput {
+    color: var(--cor-vermelho);
+    background: var(--cor-vermelho-light);
+}
+
+.msgSuccess {
+    color: var(--cor-verde);
+    background: var(--cor-verde-light);
+}
+
+.msgSuccess a,
+.msgError a {
+    font-size: 2rem;
+    font-weight: bold;
+    color: var(--cor-vermelho);
+    padding: 0 1rem;
+}
+
+/*************************************************
+estilo das paginas admin
+**************************************************/
+
+.content-admin {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    grid-template-rows: auto 1fr;
+    grid-template-areas: 
+    "sidebar nav"
+    "sidebar main";
+}
+
+.container-header-admin {
+    grid-area: sidebar;
+    position: sticky;
+    top: 0;
+    height: 100vh;
+    z-index: 99;
+    background: var(--cor--cinza-light);
+}
+
+.admin-profile {
+    grid-area: nav;
+    position: sticky;
+    top: 0;
+    z-index: 99;
+    background: var(--cor--branco);
+    padding: 1rem;
+}
+
+.content-display {
+    grid-area: main;
+    padding: 1rem 2rem;
+}
+
+.main-menu-admin {
+    padding: 0 0 0 1rem;
+}
+
+.main-menu-admin ul li a {
+    display: flex;
+    padding: 0.5rem 0 0.5rem 1rem;
+    color: var(--cor--preto);
+    font-weight: bold;
+    transition: background 300ms ease-in-out;
+}
+
+.main-menu-admin ul li a:hover {
+    background: var(--cor-azul);
+}
+
+.active {
+    background: var(--cor-azul);
+}
+
+/***********************************
+estilo pages
+***********************************/
+
+.create-pages form .form-group div {
+    padding: 1rem 0;
+}
+
+.create-pages form textarea {
+    height: 600px;
+}
+
+.btn-create-page {
+    display: flex;
+    padding: 1rem 0 0 0;
+}
+
+.btn-create-page a {
+    display: flex;
+    color: var(--cor--preto);
+    background: var(--cor--cinza-light);
+    padding: 0.5rem 1rem;
+    transition: background 350ms ease-in-out;
+}

@@ -1,0 +1,110 @@
+!DOCTYPE <html>
+    <html lang="pt-br">
+        <%- include('components/head')%>
+        <body>
+            <main class="'grid-admin">
+                <div class="content-admin">
+                    <%- include("components/menuAdmin") %>
+                    <div class="admin-profile">
+                        <% include("components-headerAdmin")%>
+                    </div>
+                    <div class="content-display">
+                        <div class="content-msg">
+                            <% if(msgSucess) { %>
+                                <div class="msgSucess">
+                                    <%= msgSucess %> <a href="/position">X</a>
+                                </div>
+                                <%} %> <% if(msgError) { %>
+                                    <div class="msgError">
+                                        <%= msgError %> <a href="/position>">X</a>
+                                    </div>
+                                    <% } %>
+                        </div>
+                        <h1>Position</h1>
+                        <div class="content-position">
+                            <form action="/position/position" method="post">
+                                <div class="content=add=position">
+                                    <h2>Cadastre uma Posição</h2>
+                                    <div class="canelar-x" id="canelar-x">
+                                        <a href="#"><i class="bx bxs-x-square"></i></a>
+                                    </div>
+                                    <div class="input-position-name">
+                                        <input
+                                        type="text"
+                                        name="position_name"
+                                        id="position_name"
+                                        placeholder="Nome da posição"
+                                        />
+                                    </div>
+                                    <div class="btn-position">
+                                        <button>Cadastrar Posição</button>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                        <div class="list-position">
+                            <div class="table">
+                                <div class="row">
+                                    <div class="grid_position header-page">
+                                        <div class="col">Postion</div>
+                                        <div class="col">Editar</div>
+                                        <div class="col">Delete</div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <% position.forEach(position => {%>
+                                    <div class="grid_position">
+                                        <div class="col"><%= position.position_name %></div>
+                                        <div class="col">
+                                            <a
+                                            class="edit"
+                                            href="position/editPosition/<%= position.position_id %>"
+                                            >
+                                            <i class="bx bxs-edit"></i>
+                                            Editar
+                                        </a>
+                                        </div>
+                                        <div class="col">
+                                            <a
+                                            class="delete"
+                                            onclick="openModalDeletePosition(`<%= position.position_id %>`, `<%= position.position_name%>`)"
+                                            id="delete"
+                                            data_id="<%= position.position_id %>"
+                                            href="#"
+                                            >
+                                            <i class="bx bxs-trash"></i>
+                                            Deletar
+                                            </a>
+                                        </div>
+                                    </div>
+                                <% }) %>
+                                </div>
+                                <div class="modal hide-modal" id="modal">
+                                    <form action="" method="post">
+                                        <div class="content-delete" id="content-delete">
+                                            <p>Voce esta prestes a deletar a posição</p>
+                                            <h3></h3>
+                                            <p>
+                                                Se voce realmente quer deletar clique em Deletar, se não,
+                                                clique em Cancelar
+                                            </p>
+                                            <div class="btns_delete">
+                                                <button class="btn_cancel" id="cancelar" type="reset">
+                                                    Cancelar
+                                                </button>
+                                                <button class="btns_delete">
+                                                    <i class="bx bxs-trash"></i>
+                                                    Deletar
+                                                </button>
+                                            </div>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </main>
+            <%- include('components/script')%>
+        </body>
+    </html>

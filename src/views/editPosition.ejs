@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <%- include('components/head' ) %>
+  <body>
+    <main class="grid-admin">
+      <div class="content-admin">
+        <%- include('components/menuAdmin') %>
+        <div class="admin-profile">
+          <%- include('components/headerAdmin') %>
+        </div>
+        <div class="content-display">
+          <div class="content-msg">
+            <% if(msgSucess) {%>
+            <div class="msgSucess">
+              <%= msgSucess %> <a href="/position">X</a>
+            </div>
+            <% } <% if(msgError) { %>
+            <div class="msgError">
+              <%= msgError %> <a href="/position">x</a>
+            </div>
+            <% } %>
+          </div>
+          <h1>Position</h1>
+          <div class="content-position">
+            <form
+              action="/position/editPosition/<%= position.position_id %>"
+              method="post"
+            >
+              <div class="content-add-position">
+                <h2>Atualizar Posição</h2>
+                <div class="canelar-x" id="canelar-x">
+                  <a href="#"><i class="bx bxs-x-square"></i></a>
+                </div>
+                <div class="input-position-name">
+                  <input
+                    type="text"
+                    name="position_name"
+                    id="position_name"
+                    placeholder="Nome da Posição"
+                    value="<%= position.position_name %>"
+                  />
+                </div>
+                <div class="btn-position">
+                  <button>Cadastrar Posição</button>
+                </div>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </main>
+    <%-include('components/script') %>
+  </body>
+</html>
